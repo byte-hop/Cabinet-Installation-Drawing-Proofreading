@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柜图校对 · 安装说明书五金与板件核对</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="5.5" y="3.5" width="21" height="25" rx="3" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M11 11.5h10M11 16h10M11 20.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24.5" cy="24.5" r="6" fill="#0e9f6e"/>
+            <path d="m22.2 24.6 1.6 1.6 3-3.2" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>柜图校对</h1>
+          <span>CABINET DOC CHECK</span>
+        </div>
+      </div>
+
+      <div class="file-card" id="fileCard">
+        <div class="file-card-empty">
+          <div class="file-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2.8h7l5 5V21a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.8a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.4"/><path d="M13 2.8v5h5" stroke="currentColor" stroke-width="1.4"/></svg>
+          </div>
+          <div>
+            <div class="file-title">未打开图纸</div>
+            <div class="file-meta">拖入 PDF 或点击打开 · 适配三类模板</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button data-view="overview" class="active">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>校验总览</span>
+        </button>
+        <button data-view="hardware">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 7.8 4.5v9L12 21l-7.8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>五金核对</span>
+          <span class="count" id="navHwCount">—</span>
+        </button>
+        <button data-view="parts">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <span>板件核对</span>
+          <span class="count" id="navPartCount">—</span>
+        </button>
+        <button data-view="steps">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="4.2" cy="6" r="1.2" fill="currentColor"/><circle cx="4.2" cy="12" r="1.2" fill="currentColor"/><circle cx="4.2" cy="18" r="1.2" fill="currentColor"/></svg>
+          <span>步骤明细</span>
+          <span class="count" id="navStepCount">—</span>
+        </button>
+        <button data-view="issues">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 21 19H3L12 3.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9v4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="16.4" r="1" fill="currentColor"/></svg>
+          <span>问题清单</span>
+          <span class="count" id="navIssueCount">—</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="offline-badge">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.8 20 6v6c0 5-3.4 8.2-8 9.2-4.6-1-8-4.2-8-9.2V6l8-3.2Z" stroke="currentColor" stroke-width="1.5"/><path d="m8.8 12 2.1 2.1 4.4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <b>本地离线运行</b>
+            <span>图纸不外传 · 不调用云端</span>
+          </div>
+        </div>
+        <button class="help-link" id="btnHelp">检查说明与边界</button>
+        <div class="version">v1.5 桌面版 · 适配 领客屋 / 遨森 / 英驰 · 支持桌面悬浮球</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="crumb" id="crumb">工作台</div>
+          <div class="topbar-sub" id="topbarSub">拖入或打开整套安装图纸，自动核对五金与板件</div>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-ghost" id="btnWidget" title="桌面悬浮球设置">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M12 1.8v2.4M12 19.8v2.4M1.8 12h2.4M19.8 12h2.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            悬浮球
+          </button>
+          <button class="btn btn-ghost" id="btnKnowledge" title="本地知识库">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6M4.5 11.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6" stroke="currentColor" stroke-width="1.6"/></svg>
+            知识库 <span class="kb-count" id="kbCount">0</span>
+          </button>
+          <button class="btn btn-ghost" id="btnOpen">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 6.5h6l2 2h9v10a1.5 1.5 0 0 1-1.5 1.5h-14A1.5 1.5 0 0 1 3.5 18V6.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3.5 9h17" stroke="currentColor" stroke-width="1.6"/></svg>
+            打开图纸
+          </button>
+          <button class="btn btn-primary" id="btnExport" disabled>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5v11M7.8 10.5 12 14.7l4.2-4.2M4.5 19.5h15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            导出报告
+          </button>
+        </div>
+      </header>
+
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <input type="file" id="fileInput" accept="application/pdf,.pdf" hidden>
+
+  <div class="loading" id="loading" hidden>
+    <div class="loading-card">
+      <div class="spinner"><span></span><span></span><span></span></div>
+      <h2>正在核对整套图纸</h2>
+      <p id="loadingText">读取 PDF 页面…</p>
+      <div class="loading-track"><i></i></div>
+    </div>
+  </div>
+
+  <div class="viewer" id="viewer" hidden>
+    <div class="viewer-shell">
+      <header class="viewer-head">
+        <div class="viewer-title-wrap">
+          <div class="viewer-kicker" id="viewerKicker">图纸定位</div>
+          <div class="viewer-title" id="viewerTitle">—</div>
+        </div>
+        <div class="viewer-actions">
+          <button class="icon-btn" id="viewerZoom" title="放大 / 还原">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.7"/><path d="m15 15 4.5 4.5M8 10.5h5M10.5 8v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+          <button class="icon-btn" id="viewerClose" title="关闭">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </header>
+      <div class="viewer-body">
+        <div class="viewer-canvas" id="viewerCanvas">
+          <div class="page-stage" id="pageStage">
+            <img id="viewerImg" alt="图纸页面">
+            <div id="viewerBoxes"></div>
+          </div>
+        </div>
+        <aside class="viewer-side" id="viewerSide"></aside>
+      </div>
+      <footer class="viewer-foot">
+        <button class="page-nav" id="viewerPrev">上一页</button>
+        <div class="page-strip" id="viewerPages"></div>
+        <button class="page-nav" id="viewerNext">下一页</button>
+      </footer>
+    </div>
+  </div>
+
+  <div class="drop-overlay" id="dropOverlay" hidden>
+    <div class="drop-card">
+      <div class="drop-icon">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4.5M7.8 8.7 12 4.5l4.2 4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <h2>松开鼠标，打开 PDF 图纸</h2>
+      <p>支持 领客屋 / 遨森 / 英驰 三类模板，单文件不超过 120 MB</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

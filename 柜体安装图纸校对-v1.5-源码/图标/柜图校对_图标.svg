@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="140" y1="70" x2="900" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1e4470"/>
+      <stop offset="0.52" stop-color="#102a49"/>
+      <stop offset="1" stop-color="#061526"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(270 120) scale(720)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4c8bd8" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#4c8bd8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="88" height="88" patternUnits="userSpaceOnUse">
+      <path d="M88 0H0V88" fill="none" stroke="#88b7eb" stroke-opacity=".10" stroke-width="1"/>
+    </pattern>
+    <clipPath id="rounded">
+      <rect x="44" y="44" width="936" height="936" rx="218"/>
+    </clipPath>
+    <filter id="cabinetShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000" flood-opacity=".42"/>
+    </filter>
+    <filter id="badgeShadow" x="-40%" y="-40%" width="180%" height="190%">
+      <feDropShadow dx="0" dy="17" stdDeviation="18" flood-color="#000" flood-opacity=".40"/>
+    </filter>
+  </defs>
+
+  <g clip-path="url(#rounded)">
+    <rect x="44" y="44" width="936" height="936" rx="218" fill="url(#bg)"/>
+    <circle cx="270" cy="120" r="720" fill="url(#glow)"/>
+    <rect x="44" y="44" width="936" height="936" fill="url(#grid)"/>
+  </g>
+  <rect x="44" y="44" width="936" height="936" rx="218" fill="none" stroke="#74a4db" stroke-opacity=".42" stroke-width="7"/>
+
+  <g fill="none" stroke="#96c4f2" stroke-opacity=".65" stroke-width="4">
+    <path d="M220 126H754M220 108V144M754 108V144"/>
+    <path d="M160 214V800M142 214H178M142 800H178"/>
+  </g>
+
+  <g filter="url(#cabinetShadow)">
+    <path d="M222 216 300 158H758L674 216Z" fill="#dceaf9" stroke="#aec9e4" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M674 216 758 158V744L674 808Z" fill="#c4d9ef" stroke="#aec9e4" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="222" y="216" width="452" height="592" rx="26" fill="#f8fcff" stroke="#b9cfe7" stroke-width="6"/>
+    <rect x="236" y="230" width="424" height="564" rx="18" fill="#edf5fd"/>
+
+    <g stroke="#b7cee5" stroke-width="4">
+      <rect x="248" y="242" width="194" height="128" rx="12" fill="#fff"/>
+      <rect x="458" y="242" width="194" height="128" rx="12" fill="#f9fcff"/>
+      <rect x="248" y="382" width="194" height="128" rx="12" fill="#f9fcff"/>
+      <rect x="458" y="382" width="194" height="128" rx="12" fill="#fff"/>
+      <rect x="248" y="522" width="194" height="128" rx="12" fill="#fff"/>
+      <rect x="458" y="522" width="194" height="128" rx="12" fill="#f9fcff"/>
+      <rect x="248" y="662" width="194" height="128" rx="12" fill="#f9fcff"/>
+      <rect x="458" y="662" width="194" height="128" rx="12" fill="#fff"/>
+    </g>
+    <g fill="#587596">
+      <rect x="304" y="272" width="84" height="8" rx="4"/>
+      <rect x="514" y="272" width="84" height="8" rx="4"/>
+      <rect x="304" y="412" width="84" height="8" rx="4"/>
+      <rect x="514" y="412" width="84" height="8" rx="4"/>
+      <rect x="304" y="552" width="84" height="8" rx="4"/>
+      <rect x="514" y="552" width="84" height="8" rx="4"/>
+      <rect x="304" y="692" width="84" height="8" rx="4"/>
+      <rect x="514" y="692" width="84" height="8" rx="4"/>
+    </g>
+    <g stroke="#fff" stroke-opacity=".9" stroke-width="2">
+      <path d="M258 250H432M468 250H642M258 390H432M468 390H642M258 530H432M468 530H642M258 670H432M468 670H642"/>
+    </g>
+    <rect x="238" y="790" width="420" height="16" rx="8" fill="#bfd3e8"/>
+  </g>
+
+  <g filter="url(#badgeShadow)">
+    <circle cx="782" cy="770" r="154" fill="#fff"/>
+    <circle cx="782" cy="770" r="139" fill="#0fa06c" stroke="#1bb47c" stroke-width="8"/>
+    <path d="M675 730A127 127 0 0 1 893 726" fill="none" stroke="#5bdcaa" stroke-opacity=".52" stroke-width="10" stroke-linecap="round"/>
+    <path d="M694 768 758 828 875 688" fill="none" stroke="#fff" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
