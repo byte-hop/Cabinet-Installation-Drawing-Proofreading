@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+data/uploads/
+data/cache/
+data/exports/
+!data/uploads/.gitkeep
+!data/cache/.gitkeep
+!data/exports/.gitkeep
+发布/data/
+build/
